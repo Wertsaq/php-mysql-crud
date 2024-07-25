@@ -2,10 +2,13 @@
 session_start();
 
 $conn = mysqli_connect(
-  'localhost',
-  'root',
-  'password123',
+  'db',
+  'my_user',
+  'my_password',
   'php_mysql_crud'
-) or die(mysqli_erro($mysqli));
+) or die(mysqli_error($conn)); 
 
+if ($conn->connect_error) {
+    die('Connection failed: ' . $conn->connect_error);
+}
 ?>
